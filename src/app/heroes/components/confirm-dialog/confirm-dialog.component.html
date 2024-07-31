@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>¿Está seguro?</h1>
+<div mat-dialog-content>
+  <p>Este proceso no es reversible, está a punto de elimiar a {{ data.superhero }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <span class="spacer"></span>
+  <button mat-button color="primary" (click)="onConfirm()" cdkFocusInitial>Ok</button>
+</div>
+
+<!-- <h2 mat-dialog-title>Delete file</h2>
+<mat-dialog-content>
+  Would you like to delete cat.jpeg?
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+</mat-dialog-actions> -->
