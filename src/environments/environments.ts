@@ -1,4 +1,4 @@
 
 export const environments = {
-    baseUrl :'http://localhost:3000'
+    baseUrl :'https://app-bhmh3hr3ea-uc.a.run.app'
 }

@@ -20,7 +20,7 @@ export class AuthService {
 
     login(email:string,password:string):Observable<User> {
 
-      return   this.http.get<User>(`${this.baseUrl}/users/1`)
+      return   this.http.get<User>('http://localhost:3000/api/usuarios/1')
         .pipe(
             tap(user => {
                 
@@ -37,7 +37,7 @@ export class AuthService {
 
             const token = localStorage.getItem('token');
 
-            return this.http.get<User>(`${this.baseUrl}/users/1`)
+            return this.http.get<User>(`http://localhost:3000/api/usuarios/1`)
                     .pipe(
                             tap(user => this.user = user),
                             map(user => !!user),

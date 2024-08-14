@@ -11,14 +11,15 @@ export class HeroService {
 
     constructor(private http: HttpClient) { }
 
+    // Obtener Heroes
     getHeroes():Observable<Hero[]> {
 
-        return  this.http.get<Hero[]>(`${this.baseUrl}/heroes`);
+        return  this.http.get<Hero[]>(`${this.baseUrl}/api/heroes/`);
     } 
 
     getHeroById(id:string):Observable<Hero| undefined> {
 
-        return this.http.get<Hero>(`${this.baseUrl}/heroes/${id}`)
+        return this.http.get<Hero>(`${this.baseUrl}/api/heroes/${id}`)
                 .pipe(
 
                     catchError(error  => of(undefined))
@@ -27,25 +28,25 @@ export class HeroService {
 
     getSuggestions(query:String):Observable<Hero[]> {
 
-        return this.http.get<Hero[]>(`${this.baseUrl}/heroes?q=${query}&_limit=6`);
+        return this.http.get<Hero[]>(`${this.baseUrl}/api/heroes/${query}/6`);
 
             
 
     }
 
     addHero(hero:Hero):Observable<Hero>{
-        return this.http.post<Hero>(`${this.baseUrl}/heroes`,hero);
+        return this.http.post<Hero>(`${this.baseUrl}/api/heroes`,hero);
     }
 
     updateHero(hero:Hero):Observable<Hero>{
         if(!hero.id) throw Error('Hero id is required');
-        return this.http.patch<Hero>(`${this.baseUrl}/heroes/${hero.id}`,hero);
+        return this.http.patch<Hero>(`${this.baseUrl}/api/heroes/${hero.id}`,hero);
     
     }
 
     deleteHeroById(id:string):Observable<boolean>{
        
-        return this.http.delete<Hero>(`${this.baseUrl}/heroes/${id}`)
+        return this.http.delete<Hero>(`${this.baseUrl}/api/heroes/${id}`)
                 .pipe(
                     map(resp => true),
 
